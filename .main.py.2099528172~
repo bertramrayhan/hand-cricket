@@ -1,0 +1,67 @@
+from random import randint
+from random import choice
+
+def intro():
+  print('Welcome to hand cricket!')
+  print('The first one that reach 40 points will win the game')
+  print('You will battle against computer')
+  print()
+
+def bat_or_bowl():
+  global player_status
+  coin_toss = choice(['heads','tails'])
+  
+  while True:
+    coin = input('Choose heads or tails: ').lower()
+    print()
+    if coin not in ['heads', 'tails']:
+      print('This is not the choice.')
+    else:
+      break
+
+  print(f'Coin toss was {coin_toss}')
+  if coin == coin_toss:
+    print('You won the toss!')
+    while True:
+      player_status = input('Choose bat or bowl: ').lower()
+      if player_status not in ['bat', 'bowl']:
+        print('This is not the choice')
+      else: 
+        break
+  else: 
+    player_status = choice(["bat","bowl"])
+    print('You loss the toss :(')
+    print(f'You will {player_status} first')
+    
+
+player_status = None
+player_score = 0
+bot_score = 0
+
+def main():
+  intro()
+
+  bat_or_bowl()
+
+  print('The battle will begin!')
+  while True:
+    #check win
+    if player_score >= 40:
+      print('You win!!')
+    elif computer_score >= 40:
+      print('Computer win :(')
+    
+    print(f'You pick {player_status}')
+    pick_number_player = int(input('Choose number from 1-6: '))
+    pick_number_computer = randint(1,6)
+
+    if pick_number_player == pick_number_computer:
+      if player_status == 'bat':
+        pl
+      
+      
+    
+
+
+if __name__ == '__main__':
+  main()
